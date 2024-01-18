@@ -9,24 +9,18 @@
 <body>
     <div>
         <div id="timer">00:00:00</div>
-        
         <button id="startButton" onclick="startTimer()">Start </button>
         <button id="stopSoundButton" onclick="stopAlarmSound()" style="display: none;">Stop Sound</button>
         <button id="stopButton" onclick="stopTimer()">Stop </button>
         <div id="reminder"></div>
         <div id="inputContainer"></div>
         <div id="savedTextContainer"></div>
-        
     </div>
 
-    <!-- Audio element for alarm sound -->
     <audio id="alarmSound">
         <source src="sound-track.mp3" type="audio/mp3">
-        Your browser does not support the audio element.
     </audio>
-
     <script>
-      
     let timer;
     let alarmSound;
 
@@ -36,19 +30,15 @@
     function startTimer() {
         // Clear any existing timers
         clearInterval(timer);
-
         // Update the timer display
         updateTimerDisplay();
-
         // Set up the timer interval
         timer = setInterval(() => {
             timeLeft++;
-
             // Update the timer display
             updateTimerDisplay();
-
             // Check if 2 hours have passed (7200 seconds)
-            if (timeLeft % 60 === 0) {
+            if (timeLeft % 7200 === 0) {
                 // showReminder(); // Call the function to show the reminder
                 playAlarm(); // Call the function to play the alarm
                 createInputField(); // Call the function to create the input field
@@ -56,22 +46,16 @@
             }
         }, 1000);
     }
-
     function stopTimer() {
         // Clear the timer interval
         clearInterval(timer);
-
         // Reset timeLeft and update the timer display
         timeLeft = 0;
         updateTimerDisplay();
-
         // Clear the reminder message
         document.getElementById('reminder').textContent = '';
-
         // Clear the input fields
         document.getElementById('inputContainer').innerHTML = '';
-
-        // Hide the stop sound button
         hideStopSoundButton();
     }
 
@@ -104,7 +88,6 @@
         const input = document.createElement('input');
         input.type = 'text';
         input.placeholder = 'What did you do in the last 1 hours?';
-
         // Create a Save button
         const saveButton = document.createElement('button');
         saveButton.textContent = 'Save';
@@ -112,7 +95,6 @@
         saveButton.onclick = function () {
             saveText(input.value, input, saveButton);
         };
-
         // Append input and save button to the container
         inputContainer.appendChild(input);
         inputContainer.appendChild(saveButton);
@@ -122,29 +104,22 @@
         // Get the current date and time
         const currentDate = new Date();
         const timestamp = currentDate.toLocaleString();
-
         // Save the entered text with timestamp to the array
         savedTexts.unshift(`${timestamp}: ${text}`);
-
         // Update the display of saved texts
         displaySavedTexts();
-
         // Save the array to local storage
         saveToLocalStorage();
-
         // Remove the input field and Save button
         inputField.remove();
         saveButton.remove();
-
         // Hide the stop sound button
         hideStopSoundButton();
     }
-
     function displaySavedTexts() {
         // Display the saved texts
         const savedTextContainer = document.getElementById('savedTextContainer');
         savedTextContainer.innerHTML = '';
-
         savedTexts.forEach((text, index) => {
             const savedTextElement = document.createElement('div');
             savedTextElement.className = 'savedText';
@@ -152,12 +127,10 @@
             savedTextContainer.appendChild(savedTextElement);
         });
     }
-
     function saveToLocalStorage() {
         // Save the array to local storage
         localStorage.setItem('savedTexts', JSON.stringify(savedTexts));
     }
-
     function loadFromLocalStorage() {
         // Load saved texts from local storage
         const storedTexts = localStorage.getItem('savedTexts');
@@ -166,24 +139,20 @@
             displaySavedTexts();
         }
     }
-
     function showStopSoundButton() {
         // Show the stop sound button
         document.getElementById('stopSoundButton').style.display = 'inline-block';
     }
-
     function hideStopSoundButton() {
         // Hide the stop sound button
         document.getElementById('stopSoundButton').style.display = 'none';
     }
-
     function stopAlarmSound() {
         // Stop the alarm sound
         if (alarmSound) {
             alarmSound.pause();
             alarmSound.currentTime = 0;
         }
-
         // Hide the stop sound button
         hideStopSoundButton();
     }
