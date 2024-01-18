@@ -2,22 +2,20 @@
     margin: 0%;
     padding: 0%;
     box-sizing: border-box;
+    background-color: rgb(238, 245, 245);
 }
-
 body {
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 100vh;
-    width: 100%;
-    background-color: rgb(162, 151, 151);
+    margin: 0;
 }
 
 #timer {
     font-size: 2em;
     text-align: center;
-    margin-top: 100px;
-    padding: 20px;
+    margin-top: 20px;
 }
 
 #reminder {
@@ -28,52 +26,26 @@ body {
 }
 
 #inputContainer {
-    margin-top: 10px;
+    margin-top: 20px;
     text-align: center;
 }
 
 .savedText {
     margin-top: 10px;
-    font-size: 1.2em;
+    font-size: 1em;
 }
 
-#stopButton {
-    padding: 6px 18px;
-    font-size: 1.2em;
+#startButton, #stopButton, #stopSoundButton {
+    margin-left: 20px;
+    padding: 7px 18px;
+    font-size: 1em;
     cursor: pointer;
-    margin-top: 20px;
-    border-radius: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
-
-#stopSoundButton {
-    margin-left: 175px;
-    padding: 6px 18px;
-    font-size: 1.2em;
-    cursor: pointer;
-    margin-top: 20px;
-    border-radius: 10px;
-}
-#startButton  {
-    margin-left: 80px;
-    padding: 6px 18px;
-    font-size: 1.2em;
-    cursor: pointer;
-    margin-top: 20px;
-    border-radius: 10px;
-}
-#startButton:hover{
-    background-color: #bc8585;
-}#stopButton:hover{
-    background-color: #bc8585;
-}#stopSoundButton:hover{
-    background-color: #553333;
-}
-
-
 
 .saveButton {
     padding: 5px 10px;
     font-size: 1em;
     cursor: pointer;
 }
-
