@@ -3,3 +3,77 @@
     padding: 0%;
     box-sizing: border-box;
 }
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background-color: rgb(162, 151, 151);
+}
+
+#timer {
+    font-size: 2em;
+    text-align: center;
+    margin-top: 100px;
+    padding: 20px;
+}
+
+#reminder {
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: #ff0000; /* Red color for the reminder message */
+    text-align: center;
+}
+
+#inputContainer {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.savedText {
+    margin-top: 10px;
+    font-size: 1.2em;
+}
+
+#stopButton {
+    padding: 6px 18px;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+#stopSoundButton {
+    margin-left: 175px;
+    padding: 6px 18px;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+#startButton  {
+    margin-left: 80px;
+    padding: 6px 18px;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+#startButton:hover{
+    background-color: #bc8585;
+}#stopButton:hover{
+    background-color: #bc8585;
+}#stopSoundButton:hover{
+    background-color: #553333;
+}
+
+
+
+.saveButton {
+    padding: 5px 10px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
